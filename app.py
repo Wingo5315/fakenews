@@ -6,6 +6,8 @@ import urllib.parse
 app = Flask(__name__)
 @app.route('/')
 def return_homepage():
+    if __name__ == '__main__':
+        app.run_server()
     # Return home page
     return Flask.render_template("index.html")
 @app.route('/results')
