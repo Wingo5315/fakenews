@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 def return_homepage():
     # Return home page
-    return render_template("index.html")
+    return Flask.render_template("index.html")
 @app.route('/results')
 def process_url():
     # The submitted URL
@@ -77,9 +77,9 @@ def process_url():
         short_reason = "didn't feel like it."
     # Return results.html template with requested variables
     if (is_valid_url == False):
-        return render_template("invalid.html", url=the_url, the_reason=reason, the_short_reason=short_reason)
+        return Flask.render_template("invalid.html", url=the_url, the_reason=reason, the_short_reason=short_reason)
     else:
-        return render_template("results.html", url=the_url, primary_domain=full_url.netloc, scheme=full_url.scheme, is_valid_url=is_valid_url, is_opinion=is_opinion)
+        return Flask.render_template("results.html", url=the_url, primary_domain=full_url.netloc, scheme=full_url.scheme, is_valid_url=is_valid_url, is_opinion=is_opinion)
 # Database information
 database_url = 'Wingo.mysql.pythonanywhere-services.com'
 database_username = 'Wingo'
