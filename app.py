@@ -4,14 +4,19 @@ from flask import render_template
 from flask import request
 import urllib.parse
 app = Flask(__name__)
-@app.route('/')
-def return_homepage():
+def run_app():
     if __name__ == '__main__':
         app.run_server()
+    else:
+        app.run_server()
+@app.route('/')
+def return_homepage():
     # Return home page
+    run_app()
     return Flask.render_template("index.html")
 @app.route('/results')
 def process_url():
+    run_app()
     # The submitted URL
     the_url = request.args.get('url')
     # A tuple version of submitted URL
